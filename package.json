@@ -2,9 +2,12 @@
   "name": "puzzle-palace",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server",
+  "browser": "client",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:client": "budo client --live -p 5000",
+    "dev:server": "node-dev server",
+    "dev": "npm-run-all -p dev:*"
   },
   "repository": {
     "type": "git",
@@ -17,7 +20,10 @@
   },
   "homepage": "https://github.com/SamSpam/puzzle-palace#readme",
   "devDependencies": {
-    "jspm": "^0.16.19"
+    "budo": "^7.1.0",
+    "jspm": "^0.16.19",
+    "node-dev": "^2.7.1",
+    "watchify": "^3.6.1"
   },
   "jspm": {
     "directories": {
@@ -30,7 +36,12 @@
     }
   },
   "dependencies": {
+    "browserify": "^12.0.1",
     "dotenv": "^1.2.0",
-    "flickrapi": "^0.3.36"
+    "flickr": "^0.2.0",
+    "flickrapi": "^0.3.36",
+    "npm-run-all": "^1.4.0",
+    "readable-stream": "^2.0.5",
+    "websocket-stream": "^3.0.1"
   }
 }
