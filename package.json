@@ -5,7 +5,7 @@
   "main": "server",
   "browser": "client",
   "scripts": {
-    "dev:client": "budo client --live -p 5000",
+    "dev:client": "budo client -d client --serve bundle.js --live -p 5000",
     "dev:server": "node-dev server",
     "dev": "npm-run-all -p dev:*"
   },
@@ -21,27 +21,18 @@
   "homepage": "https://github.com/SamSpam/puzzle-palace#readme",
   "devDependencies": {
     "budo": "^7.1.0",
-    "jspm": "^0.16.19",
     "node-dev": "^2.7.1",
     "watchify": "^3.6.1"
-  },
-  "jspm": {
-    "directories": {
-      "baseURL": "app"
-    },
-    "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4"
-    }
   },
   "dependencies": {
     "browserify": "^12.0.1",
     "dotenv": "^1.2.0",
     "flickr": "^0.2.0",
     "flickrapi": "^0.3.36",
+    "jquery": "^2.1.4",
     "npm-run-all": "^1.4.0",
     "readable-stream": "^2.0.5",
+    "split2": "^1.1.1",
     "websocket-stream": "^3.0.1"
   }
 }

@@ -1,11 +1,24 @@
 var websocket = require('websocket-stream')
-var stream = require('readable-stream')
+var Transform = require('readable-stream').Transform
+var split = require('split2')
+var $ = require('jquery')
 
-var ws = websocket('ws://localhost:5001')
+var stream = websocket('ws://localhost:5001')
 
-ws.pipe(new stream.Transform({
+stream
+.pipe(split())
+.pipe(new Transform({
   transform: function (chunk, encoding, callback) {
     console.log("chunk", chunk.toString())
     callback()
   }
 }))
+
+// stream.write('dog\n')
+
+
+$('#searchForm').submit(function(e) {
+  e.preventDefault()
+  var term = $('#searchTerm').val()
+  stream.write(term + '\n')
+})
