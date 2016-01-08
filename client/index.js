@@ -10,12 +10,10 @@ stream
 .pipe(new Transform({
   transform: function (chunk, encoding, callback) {
     console.log("chunk", chunk.toString())
+    $('#image img').attr( 'src', chunk.toString())
     callback()
   }
 }))
-
-// stream.write('dog\n')
-
 
 $('#searchForm').submit(function(e) {
   e.preventDefault()
